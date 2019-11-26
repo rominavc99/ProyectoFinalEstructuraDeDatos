@@ -26,14 +26,23 @@ namespace ProyectoSemestralEstructura
         {
             InitializeComponent();
 
-            obras.Add(new Audiovisual("Jose", 1998, "terror", 5, "yo mismo", "aqui va una descripcion", 3));
-            obras.Add(new Audiovisual("Jose", 1999, "aqui va una sinopsis", "terror", "yo mismo", 3));
-            obras.Add(new Audiovisual("Jose", 1993, "aqui va una sinopsis", "terror", "yo mismo", 3));
-
-
-
+           
+            obras.Add(new Audiovisual("Gatos y Perros", 1998, "documental", "5", "alguien", "aqui va una descripcion", "3"));
+            obras.Add(new Audiovisual("La era de hielo", 2005, "animada", "5", "alguien", "aqui va una descripcion", "1"));
+            obras.Add(new Audiovisual("Penguin", 2007, "documental", "5", "alguien", "aqui va una descripcion", "5"));
 
             lstViewMain.ItemsSource = obras;
+
+            btnEditar.Visibility = Visibility.Hidden;
+            btnGuardar.Visibility = Visibility.Hidden;
+            btnCancelar.Visibility = Visibility.Hidden;
+            Estrellas1.Visibility = Visibility.Hidden;
+            Estrellas2.Visibility = Visibility.Hidden;
+            Estrellas3.Visibility = Visibility.Hidden;
+            Estrellas4.Visibility = Visibility.Hidden;
+            Estrellas5.Visibility = Visibility.Hidden;
+            btnGuardar2.Visibility = Visibility.Hidden;
+  
         }
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
@@ -44,59 +53,264 @@ namespace ProyectoSemestralEstructura
             btnNum1.Visibility = Visibility.Hidden;
             btnNum2.Visibility = Visibility.Hidden;
             lblordenar.Visibility = Visibility.Hidden;
-
+            btnEditar.Visibility = Visibility.Hidden;
+            Estrellas1.Visibility = Visibility.Hidden;
+            Estrellas2.Visibility = Visibility.Hidden;
+            Estrellas3.Visibility = Visibility.Hidden;
+            Estrellas4.Visibility = Visibility.Hidden;
+            Estrellas5.Visibility = Visibility.Hidden;
+            btnCancelar.Visibility = Visibility.Visible;
+            btnGuardar2.Visibility = Visibility.Visible;
         }
 
         private void LstViewMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            btnCancelar.Visibility = Visibility.Visible;
+            grdMain.Children.Clear();
+            grdMain.Children.Add(new SeleccionadoEditado());
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtTituloSD.Text = obras[lstViewMain.SelectedIndex].Titulo;
+            ((SeleccionadoEditado)(grdMain.Children[0])).cbGeneroSD.Text = obras[lstViewMain.SelectedIndex].Genero;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtDirectorSD.Text = obras[lstViewMain.SelectedIndex].Productor;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtSinopsisED.Text = obras[lstViewMain.SelectedIndex].Sinopsis;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtYearSD.Text = obras[lstViewMain.SelectedIndex].Year.ToString();
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtTemporadasED.Text = obras[lstViewMain.SelectedIndex].Temporadas;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text = obras[lstViewMain.SelectedIndex].Ranting;
+
+            btnEditar.Visibility = Visibility.Visible;
+            btnAlfa1.Visibility = Visibility.Hidden;
+            btnAlfa2.Visibility = Visibility.Hidden;
+            btnNum1.Visibility = Visibility.Hidden;
+            btnNum2.Visibility = Visibility.Hidden;
+            lblordenar.Visibility = Visibility.Hidden;
+            btnGuardar2.Visibility = Visibility.Hidden;
+
+            if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "1")
+            {
+                Estrellas1.Visibility = Visibility.Visible;
+                Estrellas2.Visibility = Visibility.Hidden;
+                Estrellas3.Visibility = Visibility.Hidden;
+                Estrellas4.Visibility = Visibility.Hidden;
+                Estrellas5.Visibility = Visibility.Hidden;
+            }
+            if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "2")
+            {
+                Estrellas2.Visibility = Visibility.Visible;
+                Estrellas1.Visibility = Visibility.Hidden;
+                Estrellas3.Visibility = Visibility.Hidden;
+                Estrellas4.Visibility = Visibility.Hidden;
+                Estrellas5.Visibility = Visibility.Hidden;
+            }
+            if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "3")
+            {
+                Estrellas3.Visibility = Visibility.Visible;
+                Estrellas2.Visibility = Visibility.Hidden;
+                Estrellas1.Visibility = Visibility.Hidden;
+                Estrellas4.Visibility = Visibility.Hidden;
+                Estrellas5.Visibility = Visibility.Hidden;
+            }
+            if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "4")
+            {
+                Estrellas4.Visibility = Visibility.Visible;
+                Estrellas2.Visibility = Visibility.Hidden;
+                Estrellas3.Visibility = Visibility.Hidden;
+                Estrellas1.Visibility = Visibility.Hidden;
+                Estrellas5.Visibility = Visibility.Hidden;
+            }
+            if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "5")
+            {
+                Estrellas5.Visibility = Visibility.Visible;
+                Estrellas2.Visibility = Visibility.Hidden;
+                Estrellas3.Visibility = Visibility.Hidden;
+                Estrellas4.Visibility = Visibility.Hidden;
+                Estrellas1.Visibility = Visibility.Hidden;
+            }
             
         }
 
         private void BtnNum1_Click(object sender, RoutedEventArgs e)
         {
-            int gap, i;
-            gap = obras.Count / 2;
+              int gap, i;
+              gap = obras.Count / 2;
 
-
-            while (gap > 0)
-            {
-
-                for (i = 0; i < obras.Count; i++)
-                {
-                    if (gap + i < obras.Count && obras[i].Year > obras[gap + i].Year)
-                    {
-
-                        var temp = obras[i];
-                        obras[i] = obras[gap + i];
-                        obras[gap + i] = temp;
-                    }
-                }
-                gap--;
-            }
+              while (gap > 0)
+              {
+                  for (i = 0; i < obras.Count; i++)
+                  {
+                      if (gap + i < obras.Count && obras[i].Year > obras[gap + i].Year)
+                      {
+                          var temp = obras[i];
+                          obras[i] = obras[gap + i];
+                          obras[gap + i] = temp;
+                      }
+                  }
+                  gap--;
+              } 
         }
 
         private void BtnNum2_Click(object sender, RoutedEventArgs e)
         {
+             int gap, i;
+             gap = obras.Count / 2;
 
-            int gap, i;
-            gap = obras.Count / 2;
+             while (gap > 0)
+             {
+                 for (i = 0; i < obras.Count; i++)
+                 {
+                     if (gap + i < obras.Count && obras[i].Year < obras[gap + i].Year)
+                     {
+
+                         var temp = obras[i];
+                         obras[i] = obras[gap + i];
+                         obras[gap + i] = temp;
+                     }
+                 }
+                 gap--;
+             } 
+        }
+
+        private void BtnEditar_Click(object sender, RoutedEventArgs e)
+
+        {
+            
+            
+            grdMain.Children.Clear();
+            grdMain.Children.Add(new SeleccionadoEditado());
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtTituloSD.Text = obras[lstViewMain.SelectedIndex].Titulo;
+            ((SeleccionadoEditado)(grdMain.Children[0])).cbGeneroSD.Text = obras[lstViewMain.SelectedIndex].Genero;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtDirectorSD.Text = obras[lstViewMain.SelectedIndex].Productor;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtSinopsisED.Text = obras[lstViewMain.SelectedIndex].Sinopsis;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtYearSD.Text = obras[lstViewMain.SelectedIndex].Year.ToString();
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtTemporadasED.Text = obras[lstViewMain.SelectedIndex].Temporadas;
+            ((SeleccionadoEditado)(grdMain.Children[0])).cbRanting.Text = obras[lstViewMain.SelectedIndex].Ranting;
+
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtTituloSD.IsEnabled = true;
+            ((SeleccionadoEditado)(grdMain.Children[0])).cbGeneroSD.IsEnabled = true;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtDirectorSD.IsEnabled = true;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtSinopsisED.IsEnabled = true;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtYearSD.IsEnabled = true;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtTemporadasED.IsEnabled = true;
+            ((SeleccionadoEditado)(grdMain.Children[0])).cbRanting.IsEnabled = true;
 
 
-            while (gap > 0)
+
+            btnGuardar.Visibility = Visibility.Visible;
+            btnCancelar.Visibility = Visibility.Visible;
+            btnGuardar2.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Clear();
+            btnAlfa1.Visibility = Visibility.Visible;
+            btnAlfa2.Visibility = Visibility.Visible;
+            btnNum1.Visibility = Visibility.Visible;
+            btnNum2.Visibility = Visibility.Visible;
+            Estrellas1.Visibility = Visibility.Hidden;
+            Estrellas2.Visibility = Visibility.Hidden;
+            Estrellas3.Visibility = Visibility.Hidden;
+            Estrellas4.Visibility = Visibility.Hidden;
+            Estrellas5.Visibility = Visibility.Hidden;
+            btnGuardar2.Visibility = Visibility.Hidden;
+            btnEditar.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Add(new SeleccionadoEditado());
+            var cosa = ((SeleccionadoEditado)(grdMain.Children[0]));
+            var cosa2 = obras[lstViewMain.SelectedIndex];
+            var year2 = cosa2.Year.ToString();
+            var year3 = Convert.ToInt32(((SeleccionadoEditado)(grdMain.Children[0])).txtYearSD.Text);
+
+            cosa2.Year = year3;
+
+            btnAlfa1.Visibility = Visibility.Hidden;
+            btnAlfa2.Visibility = Visibility.Hidden;
+            btnNum1.Visibility = Visibility.Hidden;
+            btnNum2.Visibility = Visibility.Hidden;
+            lblordenar.Visibility = Visibility.Hidden;
+
+            cosa2.Titulo = cosa.txtTituloSD.Text;
+            cosa2.Sinopsis = cosa.txtSinopsisED.Text;
+            cosa2.Temporadas = cosa.txtTemporadasED.Text;
+            cosa2.Productor = cosa.txtDirectorSD.Text;
+            cosa2.Genero = cosa.cbGeneroSD.Text;
+            cosa2.Ranting = cosa.cbRanting.Text;
+
+            lstViewMain.Items.Refresh();
+
+            grdMain.Children.Clear();
+            Estrellas1.Visibility = Visibility.Hidden;
+            Estrellas2.Visibility = Visibility.Hidden;
+            Estrellas3.Visibility = Visibility.Hidden;
+            Estrellas4.Visibility = Visibility.Hidden;
+            Estrellas5.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnGuardar2_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Add(new AgregarElemento());
+            
+            var x = ((usrpelicula)(grdMain.Children[0]));
+            var y = obras[lstViewMain.SelectedIndex];
+            var year2 = y.Year.ToString();
+            var year3 = Convert.ToInt32(((usrpelicula)(grdMain.Children[0])).txtYear.Text);
+
+            y.Year = year3;
+
+            btnAlfa1.Visibility = Visibility.Hidden;
+            btnAlfa2.Visibility = Visibility.Hidden;
+            btnNum1.Visibility = Visibility.Hidden;
+            btnNum2.Visibility = Visibility.Hidden;
+            lblordenar.Visibility = Visibility.Hidden;
+
+            y.Titulo = x.txtTitulo.Text;
+            y.Sinopsis = x.txtDescripcion.Text;
+            y.Productor = x.txtProductor.Text;
+            y.Genero = x.cbGenero.Text;
+            y.Ranting = x.cbRanting.Text;
+
+            lstViewMain.Items.Refresh();
+
+        }
+
+        private void BtnAlfa1_Click(object sender, RoutedEventArgs e)
+        {
+            bool swap;
+            do
             {
-
-                for (i = 0; i < obras.Count; i++)
+                swap = false;
+                for (int index = 0; index < (obras.Count - 1); index++)
                 {
-                    if (gap + i < obras.Count && obras[i].Year < obras[gap + i].Year)
+                    if (string.Compare(obras[index].Titulo, obras[index + 1].Titulo) > 0)
                     {
+                        var temp = obras[index];
+                        obras[index] = obras[index + 1];
+                        obras[index + 1] = temp;
+                        swap = true;
+                    }
 
-                        var temp = obras[i];
-                        obras[i] = obras[gap + i];
-                        obras[gap + i] = temp;
+                }
+            } while (swap == true);
+        }
+
+        private void BtnAlfa2_Click(object sender, RoutedEventArgs e)
+        {
+            bool swap;
+            do
+            {
+                swap = false;
+                for (int index = 0; index < (obras.Count - 1); index++)
+                {
+                    if (string.Compare(obras[index].Titulo, obras[index + 1].Titulo) < 0)
+                    {
+                        var temp = obras[index];
+                        obras[index] = obras[index + 1];
+                        obras[index + 1] = temp;
+                        swap = true;
                     }
                 }
-                gap--;
-            }
+            } while (swap == true);
         }
     }
     

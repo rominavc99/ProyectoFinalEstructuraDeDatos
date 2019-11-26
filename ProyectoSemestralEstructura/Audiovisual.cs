@@ -8,30 +8,15 @@ namespace ProyectoSemestralEstructura
 {
       public class Audiovisual : Pelicula
     {
-        public Audiovisual(string titulo, int year, string genero, int temporadas, string productor, string descripcion, int ranting)
+        public Audiovisual(string titulo, int year, string genero, string temporadas, string productor, string sinopsis, string ranting)
         {
-           
             this.Titulo = titulo;
-            this.Year = year;
+            this.Year  = year;
             this.Genero = genero;
             this.Temporadas = temporadas;
             this.Productor = productor;
-            this.Descripcion = descripcion;
-            this.Ranting = ranting;
-          
-        }
-
-        public Audiovisual(string titulo, int year, string sinopsis, string genero, string director, int ranting)
-        {
             this.Sinopsis = sinopsis;
-            this.Titulo = titulo;
-            this.Year = year;
-            this.Genero = genero;
-            this.Director = director;
             this.Ranting = ranting;
         }
-
-
-
     }
 }

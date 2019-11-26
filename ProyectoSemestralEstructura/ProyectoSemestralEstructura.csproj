@@ -57,6 +57,9 @@
     </ApplicationDefinition>
     <Compile Include="Audiovisual.cs" />
     <Compile Include="Pelicula.cs" />
+    <Compile Include="SeleccionadoEditado.xaml.cs">
+      <DependentUpon>SeleccionadoEditado.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Serie.cs" />
     <Compile Include="usrpelicula.xaml.cs">
       <DependentUpon>usrpelicula.xaml</DependentUpon>
@@ -86,6 +89,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SeleccionadoEditado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="usrpelicula.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,6 +131,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="5 estrellas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="1 estrellas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="2 estrellas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="3 estrellas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="4 estrellas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

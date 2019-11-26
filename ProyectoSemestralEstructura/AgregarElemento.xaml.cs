@@ -23,8 +23,7 @@ namespace ProyectoSemestralEstructura
         public AgregarElemento()
         {
             InitializeComponent();
-            
-            
+
         }
 
         private void RdbtnPelicula_Checked(object sender, RoutedEventArgs e)

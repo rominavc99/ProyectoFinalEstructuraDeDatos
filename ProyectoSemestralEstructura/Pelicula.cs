@@ -10,14 +10,5 @@ namespace ProyectoSemestralEstructura
 public class Pelicula : Serie
     {
 
-       
-        public string Director { get; set; }
-       public string Sinopsis { get; set; }
-
-      
-
-
-
-
     }
 }

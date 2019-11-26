@@ -16,12 +16,21 @@
             </ListView.View>
         </ListView>
         <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="293,30,0,0" VerticalAlignment="Top" Width="75" Click="BtnAgregar_Click"/>
-        <Button x:Name="btnAlfa1" Content="A - Z" HorizontalAlignment="Left" Margin="22,333,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnAlfa2" Content="Z - A" HorizontalAlignment="Left" Margin="22,373,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnAlfa1" Content="A - Z" HorizontalAlignment="Left" Margin="22,333,0,0" VerticalAlignment="Top" Width="75" Click="BtnAlfa1_Click"/>
+        <Button x:Name="btnAlfa2" Content="Z - A" HorizontalAlignment="Left" Margin="22,373,0,0" VerticalAlignment="Top" Width="75" Click="BtnAlfa2_Click"/>
         <Button x:Name="btnNum1" Content="1 - 10" HorizontalAlignment="Left" Margin="164,333,0,0" VerticalAlignment="Top" Width="75" Click="BtnNum1_Click"/>
         <Button x:Name="btnNum2" Content="10 - 1" HorizontalAlignment="Left" Margin="164,373,0,0" VerticalAlignment="Top" Width="75" Click="BtnNum2_Click"/>
         <Label x:Name="lblordenar" Content="Ordenar" HorizontalAlignment="Left" Margin="107,298,0,0" VerticalAlignment="Top"/>
-        <Grid x:Name="grdMain" HorizontalAlignment="Left" Height="298" Margin="293,55,0,0" VerticalAlignment="Top" Width="490"/>
+        <Grid x:Name="grdMain" HorizontalAlignment="Left" Height="269" Margin="293,55,0,0" VerticalAlignment="Top" Width="490"/>
+        <Button x:Name="btnGuardar" Content="Actualizar" HorizontalAlignment="Left" Margin="584,373,0,0" VerticalAlignment="Top" Width="75" Click="BtnGuardar_Click"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="680,373,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancelar_Click"/>
+        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="293,373,0,0" VerticalAlignment="Top" Width="75" Click="BtnEditar_Click"/>
+        <Image x:Name="Estrellas5" Margin="611,328,33.333,55.667" Source="5 estrellas.png" Stretch="Fill"/>
+        <Image x:Name="Estrellas1" Margin="611,328,28.333,55.667" Source="1 estrellas.png" Stretch="Fill"/>
+        <Image x:Name="Estrellas2" Margin="611,328,28.333,55.667" Source="2 estrellas.png" Stretch="Fill"/>
+        <Image x:Name="Estrellas3" Margin="604,324,18.333,55.667" Source="3 estrellas.png" Stretch="Fill"/>
+        <Image x:Name="Estrellas4" Margin="595,324,18.333,52.667" Source="4 estrellas.png" Stretch="Fill"/>
+        <Button x:Name="btnGuardar2" Content="Guardar" HorizontalAlignment="Left" Margin="482,373,0,0" VerticalAlignment="Top" Width="75" Click="BtnGuardar2_Click"/>
 
     </Grid>
 </Window>
