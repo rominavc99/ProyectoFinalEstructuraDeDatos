@@ -247,22 +247,9 @@ namespace ProyectoSemestralEstructura
 
         private void BtnGuardar2_Click(object sender, RoutedEventArgs e)
         {
-            grdMain.Children.Add(new usrpelicula());
-
-            btnAlfa1.Visibility = Visibility.Hidden;
-            btnAlfa2.Visibility = Visibility.Hidden;
-            btnNum1.Visibility = Visibility.Hidden;
-            btnNum2.Visibility = Visibility.Hidden;
-            lblordenar.Visibility = Visibility.Hidden;
-
-            obras[lstViewMain.SelectedIndex].Titulo = ((usrpelicula)(grdMain.Children[0])).txtTitulo.Text;
-            obras[lstViewMain.SelectedIndex].Sinopsis = ((usrpelicula)(grdMain.Children[0])).txtDescripcion.Text;
-            obras[lstViewMain.SelectedIndex].Productor = ((usrpelicula)(grdMain.Children[0])).txtProductor.Text;
-            obras[lstViewMain.SelectedIndex].Genero = ((usrpelicula)(grdMain.Children[0])).cbGenero.Text;
-            obras[lstViewMain.SelectedIndex].Ranting = ((usrpelicula)(grdMain.Children[0])).cbRanting.Text;
+           
 
             lstViewMain.Items.Refresh();
-
         }
 
         private void BtnAlfa1_Click(object sender, RoutedEventArgs e)
