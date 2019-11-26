@@ -28,10 +28,11 @@ namespace ProyectoSemestralEstructura
             txtDirectorSD.IsEnabled = false;
             txtTemporadasED.IsEnabled = false;
             txtTituloSD.IsEnabled = false;
-            cbGeneroSD.IsEnabled = false;
+            cbGenero.IsEnabled = false;
             txtSinopsisED.IsEnabled = false;
             txtYearSD.IsEnabled = false;
-            cbRanting.IsEnabled = false;
+            cbRantingSD.IsEnabled = false;
+            txtGeneroSD.IsEnabled = false;
             txtRantingSD.IsEnabled = false;
         }
     }

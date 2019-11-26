@@ -26,7 +26,6 @@ namespace ProyectoSemestralEstructura
         {
             InitializeComponent();
 
-           
             obras.Add(new Audiovisual("Gatos y Perros", 1998, "documental", "5", "alguien", "aqui va una descripcion", "3"));
             obras.Add(new Audiovisual("La era de hielo", 2005, "animada", "5", "alguien", "aqui va una descripcion", "1"));
             obras.Add(new Audiovisual("Penguin", 2007, "documental", "5", "alguien", "aqui va una descripcion", "5"));
@@ -42,7 +41,6 @@ namespace ProyectoSemestralEstructura
             Estrellas4.Visibility = Visibility.Hidden;
             Estrellas5.Visibility = Visibility.Hidden;
             btnGuardar2.Visibility = Visibility.Hidden;
-  
         }
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
@@ -65,66 +63,69 @@ namespace ProyectoSemestralEstructura
 
         private void LstViewMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            btnCancelar.Visibility = Visibility.Visible;
-            grdMain.Children.Clear();
-            grdMain.Children.Add(new SeleccionadoEditado());
-            ((SeleccionadoEditado)(grdMain.Children[0])).txtTituloSD.Text = obras[lstViewMain.SelectedIndex].Titulo;
-            ((SeleccionadoEditado)(grdMain.Children[0])).cbGeneroSD.Text = obras[lstViewMain.SelectedIndex].Genero;
-            ((SeleccionadoEditado)(grdMain.Children[0])).txtDirectorSD.Text = obras[lstViewMain.SelectedIndex].Productor;
-            ((SeleccionadoEditado)(grdMain.Children[0])).txtSinopsisED.Text = obras[lstViewMain.SelectedIndex].Sinopsis;
-            ((SeleccionadoEditado)(grdMain.Children[0])).txtYearSD.Text = obras[lstViewMain.SelectedIndex].Year.ToString();
-            ((SeleccionadoEditado)(grdMain.Children[0])).txtTemporadasED.Text = obras[lstViewMain.SelectedIndex].Temporadas;
-            ((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text = obras[lstViewMain.SelectedIndex].Ranting;
+            if(lstViewMain.SelectedIndex != -1)
+            {
+                btnCancelar.Visibility = Visibility.Visible;
+                grdMain.Children.Clear();
+                grdMain.Children.Add(new SeleccionadoEditado());
+                ((SeleccionadoEditado)(grdMain.Children[0])).txtTituloSD.Text = obras[lstViewMain.SelectedIndex].Titulo;
+                ((SeleccionadoEditado)(grdMain.Children[0])).txtGeneroSD.Text = obras[lstViewMain.SelectedIndex].Genero;
+                ((SeleccionadoEditado)(grdMain.Children[0])).txtDirectorSD.Text = obras[lstViewMain.SelectedIndex].Productor;
+                ((SeleccionadoEditado)(grdMain.Children[0])).txtSinopsisED.Text = obras[lstViewMain.SelectedIndex].Sinopsis;
+                ((SeleccionadoEditado)(grdMain.Children[0])).txtYearSD.Text = obras[lstViewMain.SelectedIndex].Year.ToString();
+                ((SeleccionadoEditado)(grdMain.Children[0])).txtTemporadasED.Text = obras[lstViewMain.SelectedIndex].Temporadas;
+                ((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text = obras[lstViewMain.SelectedIndex].Ranting;
 
-            btnEditar.Visibility = Visibility.Visible;
-            btnAlfa1.Visibility = Visibility.Hidden;
-            btnAlfa2.Visibility = Visibility.Hidden;
-            btnNum1.Visibility = Visibility.Hidden;
-            btnNum2.Visibility = Visibility.Hidden;
-            lblordenar.Visibility = Visibility.Hidden;
-            btnGuardar2.Visibility = Visibility.Hidden;
+                btnEditar.Visibility = Visibility.Visible;
+                btnAlfa1.Visibility = Visibility.Hidden;
+                btnAlfa2.Visibility = Visibility.Hidden;
+                btnNum1.Visibility = Visibility.Hidden;
+                btnNum2.Visibility = Visibility.Hidden;
+                lblordenar.Visibility = Visibility.Hidden;
+                btnGuardar2.Visibility = Visibility.Hidden;
 
-            if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "1")
-            {
-                Estrellas1.Visibility = Visibility.Visible;
-                Estrellas2.Visibility = Visibility.Hidden;
-                Estrellas3.Visibility = Visibility.Hidden;
-                Estrellas4.Visibility = Visibility.Hidden;
-                Estrellas5.Visibility = Visibility.Hidden;
+                if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "1")
+                {
+                    Estrellas1.Visibility = Visibility.Visible;
+                    Estrellas2.Visibility = Visibility.Hidden;
+                    Estrellas3.Visibility = Visibility.Hidden;
+                    Estrellas4.Visibility = Visibility.Hidden;
+                    Estrellas5.Visibility = Visibility.Hidden;
+                }
+                if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "2")
+                {
+                    Estrellas2.Visibility = Visibility.Visible;
+                    Estrellas1.Visibility = Visibility.Hidden;
+                    Estrellas3.Visibility = Visibility.Hidden;
+                    Estrellas4.Visibility = Visibility.Hidden;
+                    Estrellas5.Visibility = Visibility.Hidden;
+                }
+                if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "3")
+                {
+                    Estrellas3.Visibility = Visibility.Visible;
+                    Estrellas2.Visibility = Visibility.Hidden;
+                    Estrellas1.Visibility = Visibility.Hidden;
+                    Estrellas4.Visibility = Visibility.Hidden;
+                    Estrellas5.Visibility = Visibility.Hidden;
+                }
+                if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "4")
+                {
+                    Estrellas4.Visibility = Visibility.Visible;
+                    Estrellas2.Visibility = Visibility.Hidden;
+                    Estrellas3.Visibility = Visibility.Hidden;
+                    Estrellas1.Visibility = Visibility.Hidden;
+                    Estrellas5.Visibility = Visibility.Hidden;
+                }
+                if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "5")
+                {
+                    Estrellas5.Visibility = Visibility.Visible;
+                    Estrellas2.Visibility = Visibility.Hidden;
+                    Estrellas3.Visibility = Visibility.Hidden;
+                    Estrellas4.Visibility = Visibility.Hidden;
+                    Estrellas1.Visibility = Visibility.Hidden;
+                }
             }
-            if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "2")
-            {
-                Estrellas2.Visibility = Visibility.Visible;
-                Estrellas1.Visibility = Visibility.Hidden;
-                Estrellas3.Visibility = Visibility.Hidden;
-                Estrellas4.Visibility = Visibility.Hidden;
-                Estrellas5.Visibility = Visibility.Hidden;
-            }
-            if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "3")
-            {
-                Estrellas3.Visibility = Visibility.Visible;
-                Estrellas2.Visibility = Visibility.Hidden;
-                Estrellas1.Visibility = Visibility.Hidden;
-                Estrellas4.Visibility = Visibility.Hidden;
-                Estrellas5.Visibility = Visibility.Hidden;
-            }
-            if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "4")
-            {
-                Estrellas4.Visibility = Visibility.Visible;
-                Estrellas2.Visibility = Visibility.Hidden;
-                Estrellas3.Visibility = Visibility.Hidden;
-                Estrellas1.Visibility = Visibility.Hidden;
-                Estrellas5.Visibility = Visibility.Hidden;
-            }
-            if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "5")
-            {
-                Estrellas5.Visibility = Visibility.Visible;
-                Estrellas2.Visibility = Visibility.Hidden;
-                Estrellas3.Visibility = Visibility.Hidden;
-                Estrellas4.Visibility = Visibility.Hidden;
-                Estrellas1.Visibility = Visibility.Hidden;
-            }
-            
+
         }
 
         private void BtnNum1_Click(object sender, RoutedEventArgs e)
@@ -171,27 +172,24 @@ namespace ProyectoSemestralEstructura
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
 
         {
-            
-            
             grdMain.Children.Clear();
             grdMain.Children.Add(new SeleccionadoEditado());
             ((SeleccionadoEditado)(grdMain.Children[0])).txtTituloSD.Text = obras[lstViewMain.SelectedIndex].Titulo;
-            ((SeleccionadoEditado)(grdMain.Children[0])).cbGeneroSD.Text = obras[lstViewMain.SelectedIndex].Genero;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtGeneroSD.Text = obras[lstViewMain.SelectedIndex].Genero;
             ((SeleccionadoEditado)(grdMain.Children[0])).txtDirectorSD.Text = obras[lstViewMain.SelectedIndex].Productor;
             ((SeleccionadoEditado)(grdMain.Children[0])).txtSinopsisED.Text = obras[lstViewMain.SelectedIndex].Sinopsis;
             ((SeleccionadoEditado)(grdMain.Children[0])).txtYearSD.Text = obras[lstViewMain.SelectedIndex].Year.ToString();
             ((SeleccionadoEditado)(grdMain.Children[0])).txtTemporadasED.Text = obras[lstViewMain.SelectedIndex].Temporadas;
-            ((SeleccionadoEditado)(grdMain.Children[0])).cbRanting.Text = obras[lstViewMain.SelectedIndex].Ranting;
+            ((SeleccionadoEditado)(grdMain.Children[0])).cbRantingSD.Text = obras[lstViewMain.SelectedIndex].Ranting;
 
             ((SeleccionadoEditado)(grdMain.Children[0])).txtTituloSD.IsEnabled = true;
-            ((SeleccionadoEditado)(grdMain.Children[0])).cbGeneroSD.IsEnabled = true;
+            ((SeleccionadoEditado)(grdMain.Children[0])).cbGenero.IsEnabled = true;
+            ((SeleccionadoEditado)(grdMain.Children[0])).txtGeneroSD.IsEnabled = true;
             ((SeleccionadoEditado)(grdMain.Children[0])).txtDirectorSD.IsEnabled = true;
             ((SeleccionadoEditado)(grdMain.Children[0])).txtSinopsisED.IsEnabled = true;
             ((SeleccionadoEditado)(grdMain.Children[0])).txtYearSD.IsEnabled = true;
             ((SeleccionadoEditado)(grdMain.Children[0])).txtTemporadasED.IsEnabled = true;
-            ((SeleccionadoEditado)(grdMain.Children[0])).cbRanting.IsEnabled = true;
-
-
+            ((SeleccionadoEditado)(grdMain.Children[0])).cbRantingSD.IsEnabled = true;
 
             btnGuardar.Visibility = Visibility.Visible;
             btnCancelar.Visibility = Visibility.Visible;
@@ -234,8 +232,8 @@ namespace ProyectoSemestralEstructura
             cosa2.Sinopsis = cosa.txtSinopsisED.Text;
             cosa2.Temporadas = cosa.txtTemporadasED.Text;
             cosa2.Productor = cosa.txtDirectorSD.Text;
-            cosa2.Genero = cosa.cbGeneroSD.Text;
-            cosa2.Ranting = cosa.cbRanting.Text;
+            cosa2.Genero = cosa.cbGenero.Text;
+            cosa2.Ranting = cosa.cbRantingSD.Text;
 
             lstViewMain.Items.Refresh();
 
@@ -249,14 +247,7 @@ namespace ProyectoSemestralEstructura
 
         private void BtnGuardar2_Click(object sender, RoutedEventArgs e)
         {
-            grdMain.Children.Add(new AgregarElemento());
-            
-            var x = ((usrpelicula)(grdMain.Children[0]));
-            var y = obras[lstViewMain.SelectedIndex];
-            var year2 = y.Year.ToString();
-            var year3 = Convert.ToInt32(((usrpelicula)(grdMain.Children[0])).txtYear.Text);
-
-            y.Year = year3;
+            grdMain.Children.Add(new usrpelicula());
 
             btnAlfa1.Visibility = Visibility.Hidden;
             btnAlfa2.Visibility = Visibility.Hidden;
@@ -264,11 +255,11 @@ namespace ProyectoSemestralEstructura
             btnNum2.Visibility = Visibility.Hidden;
             lblordenar.Visibility = Visibility.Hidden;
 
-            y.Titulo = x.txtTitulo.Text;
-            y.Sinopsis = x.txtDescripcion.Text;
-            y.Productor = x.txtProductor.Text;
-            y.Genero = x.cbGenero.Text;
-            y.Ranting = x.cbRanting.Text;
+            obras[lstViewMain.SelectedIndex].Titulo = ((usrpelicula)(grdMain.Children[0])).txtTitulo.Text;
+            obras[lstViewMain.SelectedIndex].Sinopsis = ((usrpelicula)(grdMain.Children[0])).txtDescripcion.Text;
+            obras[lstViewMain.SelectedIndex].Productor = ((usrpelicula)(grdMain.Children[0])).txtProductor.Text;
+            obras[lstViewMain.SelectedIndex].Genero = ((usrpelicula)(grdMain.Children[0])).cbGenero.Text;
+            obras[lstViewMain.SelectedIndex].Ranting = ((usrpelicula)(grdMain.Children[0])).cbRanting.Text;
 
             lstViewMain.Items.Refresh();
 
@@ -289,7 +280,6 @@ namespace ProyectoSemestralEstructura
                         obras[index + 1] = temp;
                         swap = true;
                     }
-
                 }
             } while (swap == true);
         }
@@ -312,6 +302,13 @@ namespace ProyectoSemestralEstructura
                 }
             } while (swap == true);
         }
+
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if(lstViewMain.SelectedIndex != -1)
+            {
+                obras.RemoveAt(lstViewMain.SelectedIndex);
+            }
+        }
     }
-    
 }

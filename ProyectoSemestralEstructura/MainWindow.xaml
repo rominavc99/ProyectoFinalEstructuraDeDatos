@@ -31,6 +31,7 @@
         <Image x:Name="Estrellas3" Margin="604,324,18.333,55.667" Source="3 estrellas.png" Stretch="Fill"/>
         <Image x:Name="Estrellas4" Margin="595,324,18.333,52.667" Source="4 estrellas.png" Stretch="Fill"/>
         <Button x:Name="btnGuardar2" Content="Guardar" HorizontalAlignment="Left" Margin="482,373,0,0" VerticalAlignment="Top" Width="75" Click="BtnGuardar2_Click"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="398,373,0,0" VerticalAlignment="Top" Width="75" Click="BtnEliminar_Click"/>
 
     </Grid>
 </Window>
