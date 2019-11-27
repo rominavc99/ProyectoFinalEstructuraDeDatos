@@ -48,7 +48,8 @@ namespace ProyectoSemestralEstructura
             btnguardar3.Visibility = Visibility.Hidden;
             lblobligatorio.Visibility = Visibility.Hidden;
             btnEliminar.Visibility = Visibility.Hidden;
-           
+            lblserie.Visibility = Visibility.Hidden;
+            lblpelicula.Visibility = Visibility.Hidden;
         }
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
@@ -95,6 +96,8 @@ namespace ProyectoSemestralEstructura
                 btnGuardar2.Visibility = Visibility.Hidden;
                 btnEliminar.Visibility = Visibility.Visible;
 
+               
+
                 if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "1")
                 {
                     Estrellas1.Visibility = Visibility.Visible;
@@ -134,6 +137,17 @@ namespace ProyectoSemestralEstructura
                     Estrellas3.Visibility = Visibility.Hidden;
                     Estrellas4.Visibility = Visibility.Hidden;
                     Estrellas1.Visibility = Visibility.Hidden;
+                }
+
+                if (((SeleccionadoEditado)(grdMain.Children[0])).txtTemporadasED.Text != "no aplica")
+                {
+                    lblserie.Visibility = Visibility.Visible;
+                    lblpelicula.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    lblserie.Visibility = Visibility.Hidden;
+                    lblpelicula.Visibility = Visibility.Visible;
                 }
             }
         }
@@ -204,6 +218,8 @@ namespace ProyectoSemestralEstructura
             btnGuardar.Visibility = Visibility.Visible;
             btnCancelar.Visibility = Visibility.Visible;
             btnGuardar2.Visibility = Visibility.Hidden;
+            lblserie.Visibility = Visibility.Hidden;
+            lblpelicula.Visibility = Visibility.Hidden;
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
@@ -223,6 +239,8 @@ namespace ProyectoSemestralEstructura
             btnguardar3.Visibility = Visibility.Hidden;
             btnEliminar.Visibility = Visibility.Hidden;
             btnGuardar.Visibility = Visibility.Hidden;
+            lblserie.Visibility = Visibility.Hidden;
+            lblpelicula.Visibility = Visibility.Hidden;
         }
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
@@ -265,6 +283,8 @@ namespace ProyectoSemestralEstructura
             Estrellas3.Visibility = Visibility.Hidden;
             Estrellas4.Visibility = Visibility.Hidden;
             Estrellas5.Visibility = Visibility.Hidden;
+            lblserie.Visibility = Visibility.Hidden;
+            lblpelicula.Visibility = Visibility.Hidden;
         }
 
         private void BtnGuardar2_Click(object sender, RoutedEventArgs e)
@@ -335,6 +355,8 @@ namespace ProyectoSemestralEstructura
                 Estrellas4.Visibility = Visibility.Hidden;
                 Estrellas5.Visibility = Visibility.Hidden;
                 btnEditar.Visibility = Visibility.Hidden;
+                lblserie.Visibility = Visibility.Hidden;
+                lblpelicula.Visibility = Visibility.Hidden;
                 grdMain.Children.Clear();
             }
         }

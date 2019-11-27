@@ -37,6 +37,8 @@
         <RadioButton x:Name="rdbtnSerie" Content="Serie" HorizontalAlignment="Left" Margin="512,29,0,0" VerticalAlignment="Top" Checked="RdbtnSerie_Checked"  />
         <Button x:Name="btnguardar3" Content="Guardar" HorizontalAlignment="Left" Margin="482,348,0,0" VerticalAlignment="Top" Width="75" Click="Btnguardar3_Click"/>
         <Label x:Name="lblobligatorio" Content="Todos los campos son obligatorios" HorizontalAlignment="Left" Margin="281,339,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblpelicula" Content="Pelicula" HorizontalAlignment="Left" Margin="621,13,0,0" VerticalAlignment="Top" Height="31" Width="67"/>
+        <Label x:Name="lblserie" Content="Serie" HorizontalAlignment="Left" Margin="621,13,0,0" VerticalAlignment="Top" Height="31" Width="48"/>
 
     </Grid>
 </Window>
