@@ -45,6 +45,7 @@ namespace ProyectoSemestralEstructura
             rdbtnSerie.Visibility = Visibility.Hidden;
             lblTipo.Visibility = Visibility.Hidden;
             btnguardar3.Visibility = Visibility.Hidden;
+            lblobligatorio.Visibility = Visibility.Hidden;
            
         }
 
@@ -132,7 +133,6 @@ namespace ProyectoSemestralEstructura
                     Estrellas1.Visibility = Visibility.Hidden;
                 }
             }
-
         }
 
         private void BtnNum1_Click(object sender, RoutedEventArgs e)
@@ -217,34 +217,46 @@ namespace ProyectoSemestralEstructura
             Estrellas5.Visibility = Visibility.Hidden;
             btnGuardar2.Visibility = Visibility.Hidden;
             btnEditar.Visibility = Visibility.Hidden;
+            btnguardar3.Visibility = Visibility.Hidden;
+            btnEliminar.Visibility = Visibility.Hidden;
+            btnGuardar.Visibility = Visibility.Hidden;
         }
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            grdMain.Children.Add(new SeleccionadoEditado());
-            var cosa = ((SeleccionadoEditado)(grdMain.Children[0]));
-            var cosa2 = obras[lstViewMain.SelectedIndex];
-            var year2 = cosa2.Year.ToString();
-            var year3 = Convert.ToInt32(((SeleccionadoEditado)(grdMain.Children[0])).txtYearSD.Text);
+            if (((SeleccionadoEditado)(grdMain.Children[0])).txtTituloSD.Text == string.Empty || ((SeleccionadoEditado)(grdMain.Children[0])).txtYearSD.Text == string.Empty || ((SeleccionadoEditado)(grdMain.Children[0])).txtSinopsisED.Text == string.Empty || ((SeleccionadoEditado)(grdMain.Children[0])).txtDirectorSD.Text == string.Empty || ((SeleccionadoEditado)(grdMain.Children[0])).cbGenero.Text == string.Empty || ((SeleccionadoEditado)(grdMain.Children[0])).cbRantingSD.Text == string.Empty)
+            {
+                lblobligatorio.Visibility = Visibility.Visible;
+            }
+            else
+            {
+              
+                grdMain.Children.Add(new SeleccionadoEditado());
+                var cosa = ((SeleccionadoEditado)(grdMain.Children[0]));
+                var cosa2 = obras[lstViewMain.SelectedIndex];
+                var year2 = cosa2.Year.ToString();
+                var year3 = Convert.ToInt32(((SeleccionadoEditado)(grdMain.Children[0])).txtYearSD.Text);
 
-            cosa2.Year = year3;
+                cosa2.Year = year3;
 
+                cosa2.Titulo = cosa.txtTituloSD.Text;
+                cosa2.Sinopsis = cosa.txtSinopsisED.Text;
+                cosa2.Temporadas = cosa.txtTemporadasED.Text;
+                cosa2.Productor = cosa.txtDirectorSD.Text;
+                cosa2.Genero = cosa.cbGenero.Text;
+                cosa2.Ranting = cosa.cbRantingSD.Text;
+
+                lblobligatorio.Visibility = Visibility.Hidden;
+                lstViewMain.Items.Refresh();
+                grdMain.Children.Clear();
+            }
+
+            
             btnAlfa1.Visibility = Visibility.Hidden;
             btnAlfa2.Visibility = Visibility.Hidden;
             btnNum1.Visibility = Visibility.Hidden;
             btnNum2.Visibility = Visibility.Hidden;
             lblordenar.Visibility = Visibility.Hidden;
-
-            cosa2.Titulo = cosa.txtTituloSD.Text;
-            cosa2.Sinopsis = cosa.txtSinopsisED.Text;
-            cosa2.Temporadas = cosa.txtTemporadasED.Text;
-            cosa2.Productor = cosa.txtDirectorSD.Text;
-            cosa2.Genero = cosa.cbGenero.Text;
-            cosa2.Ranting = cosa.cbRantingSD.Text;
-
-            lstViewMain.Items.Refresh();
-
-            grdMain.Children.Clear();
             Estrellas1.Visibility = Visibility.Hidden;
             Estrellas2.Visibility = Visibility.Hidden;
             Estrellas3.Visibility = Visibility.Hidden;
@@ -254,13 +266,21 @@ namespace ProyectoSemestralEstructura
 
         private void BtnGuardar2_Click(object sender, RoutedEventArgs e)
         {
-            var yeartest = ((AgregarElemento)(grdMain.Children[0])).txtYear.Text;
-            int yearbien = int.Parse(yeartest);
-            string temporadass = "no aplica";
+            if (((AgregarElemento)(grdMain.Children[0])).txtTitulo.Text == string.Empty || ((AgregarElemento)(grdMain.Children[0])).txtYear.Text == string.Empty || ((AgregarElemento)(grdMain.Children[0])).txtDescripcion.Text == string.Empty || ((AgregarElemento)(grdMain.Children[0])).txtProductor.Text == string.Empty || ((AgregarElemento)(grdMain.Children[0])).cbGenero.Text == string.Empty || ((AgregarElemento)(grdMain.Children[0])).cbRanting.Text == string.Empty)
+            {
+                lblobligatorio.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                var yeartest = ((AgregarElemento)(grdMain.Children[0])).txtYear.Text;
+                int yearbien = int.Parse(yeartest);
+                string temporadass = "no aplica";
 
-            obras.Add(new Audiovisual(((AgregarElemento)(grdMain.Children[0])).txtTitulo.Text, yearbien, ((AgregarElemento)(grdMain.Children[0])).cbGenero.Text, temporadass, ((AgregarElemento)(grdMain.Children[0])).txtProductor.Text, ((AgregarElemento)(grdMain.Children[0])).txtDescripcion.Text, ((AgregarElemento)(grdMain.Children[0])).cbRanting.Text));
+                obras.Add(new Audiovisual(((AgregarElemento)(grdMain.Children[0])).txtTitulo.Text, yearbien, ((AgregarElemento)(grdMain.Children[0])).cbGenero.Text, temporadass, ((AgregarElemento)(grdMain.Children[0])).txtProductor.Text, ((AgregarElemento)(grdMain.Children[0])).txtDescripcion.Text, ((AgregarElemento)(grdMain.Children[0])).cbRanting.Text));
 
-            lstViewMain.Items.Refresh();
+                lstViewMain.Items.Refresh();
+                lblobligatorio.Visibility = Visibility.Hidden;
+            }
         }
 
         private void BtnAlfa1_Click(object sender, RoutedEventArgs e)
@@ -311,6 +331,7 @@ namespace ProyectoSemestralEstructura
 
         private void RdbtnPelicula_Checked(object sender, RoutedEventArgs e)
         {
+            grdMain.Children.Clear();
             grdMain.Children.Add(new AgregarElemento());
             ((AgregarElemento)(grdMain.Children[0])).cbTemporadas.Visibility = Visibility.Hidden;
             ((AgregarElemento)(grdMain.Children[0])).lbltempodaras.Visibility = Visibility.Hidden;
@@ -320,6 +341,7 @@ namespace ProyectoSemestralEstructura
 
         private void RdbtnSerie_Checked(object sender, RoutedEventArgs e)
         {
+            grdMain.Children.Clear();
             grdMain.Children.Add(new AgregarElemento());
             ((AgregarElemento)(grdMain.Children[0])).cbTemporadas.Visibility = Visibility.Visible;
             ((AgregarElemento)(grdMain.Children[0])).lbltempodaras.Visibility = Visibility.Visible;
@@ -329,11 +351,20 @@ namespace ProyectoSemestralEstructura
 
         private void Btnguardar3_Click(object sender, RoutedEventArgs e)
         {
-            int year3 = Convert.ToInt32(((AgregarElemento)(grdMain.Children[0])).txtYear.Text);
+            if (((AgregarElemento)(grdMain.Children[0])).txtTitulo.Text == string.Empty || ((AgregarElemento)(grdMain.Children[0])).txtYear.Text == string.Empty || ((AgregarElemento)(grdMain.Children[0])).txtDescripcion.Text == string.Empty || ((AgregarElemento)(grdMain.Children[0])).txtProductor.Text == string.Empty || ((AgregarElemento)(grdMain.Children[0])).cbGenero.Text == string.Empty || ((AgregarElemento)(grdMain.Children[0])).cbRanting.Text == string.Empty)
+            {
+                lblobligatorio.Visibility = Visibility.Visible;
+            }
 
-            obras.Add(new Audiovisual(((AgregarElemento)(grdMain.Children[0])).txtTitulo.Text, year3, ((AgregarElemento)(grdMain.Children[0])).cbGenero.Text, ((AgregarElemento)(grdMain.Children[0])).cbTemporadas.Text, ((AgregarElemento)(grdMain.Children[0])).txtProductor.Text, ((AgregarElemento)(grdMain.Children[0])).txtDescripcion.Text, ((AgregarElemento)(grdMain.Children[0])).cbRanting.Text));
+            else
+            {
+                int year3 = Convert.ToInt32(((AgregarElemento)(grdMain.Children[0])).txtYear.Text);
 
-            lstViewMain.Items.Refresh();
+                obras.Add(new Audiovisual(((AgregarElemento)(grdMain.Children[0])).txtTitulo.Text, year3, ((AgregarElemento)(grdMain.Children[0])).cbGenero.Text, ((AgregarElemento)(grdMain.Children[0])).cbTemporadas.Text, ((AgregarElemento)(grdMain.Children[0])).txtProductor.Text, ((AgregarElemento)(grdMain.Children[0])).txtDescripcion.Text, ((AgregarElemento)(grdMain.Children[0])).cbRanting.Text));
+                lblobligatorio.Visibility = Visibility.Visible;
+                lstViewMain.Items.Refresh();
+            }
+
         }
     }
 }
