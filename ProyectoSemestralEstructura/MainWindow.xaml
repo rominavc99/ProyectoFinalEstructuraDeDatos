@@ -35,6 +35,7 @@
         <Label x:Name="lblTipo" Content="Tipo" HorizontalAlignment="Left" Margin="390,23,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rdbtnPelicula" Content="Pelicula" HorizontalAlignment="Left" Margin="431,29,0,0" VerticalAlignment="Top"   Checked="RdbtnPelicula_Checked"  />
         <RadioButton x:Name="rdbtnSerie" Content="Serie" HorizontalAlignment="Left" Margin="512,29,0,0" VerticalAlignment="Top" Checked="RdbtnSerie_Checked"  />
+        <Button x:Name="btnguardar3" Content="Guardar" HorizontalAlignment="Left" Margin="482,348,0,0" VerticalAlignment="Top" Width="75" Click="Btnguardar3_Click"/>
 
     </Grid>
 </Window>
