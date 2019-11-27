@@ -8,12 +8,40 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Label Content="AGREGAR NUEVO ELEMENTO" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Tipo" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rdbtnPelicula" Content="Pelicula" HorizontalAlignment="Left" Margin="51,42,0,0" VerticalAlignment="Top" Checked="RdbtnPelicula_Checked"/>
-        <RadioButton x:Name="rdbtnSerie" Content="Serie" HorizontalAlignment="Left" Margin="132,42,0,0" VerticalAlignment="Top" Checked="RdbtnSerie_Checked"/>
-        <Grid x:Name="grdPeliculaSerie" HorizontalAlignment="Left" Height="358" Margin="10,62,0,0" VerticalAlignment="Top" Width="780">
+        <Label Content="Titulo" HorizontalAlignment="Left" Margin="13,69,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTitulo" HorizontalAlignment="Left" Height="23" Margin="92,69,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="Year" HorizontalAlignment="Left" Margin="13,104,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtYear" HorizontalAlignment="Left" Height="23" Margin="92,104,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="Genero" HorizontalAlignment="Left" Margin="13,140,0,0" VerticalAlignment="Top"/>
 
-        </Grid>
+
+        <Label Content="Director" HorizontalAlignment="Left" Margin="253,71,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtProductor" HorizontalAlignment="Left" Height="23" Margin="350,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbGenero" HorizontalAlignment="Left" Margin="92,140,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem>Documental</ComboBoxItem>
+            <ComboBoxItem>Terror</ComboBoxItem>
+            <ComboBoxItem>Ciencia Ficcion</ComboBoxItem>
+            <ComboBoxItem>Drama</ComboBoxItem>
+            <ComboBoxItem>Animada</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Sinopsis" HorizontalAlignment="Left" Margin="13,176,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Height="51" Margin="52,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418"/>
+        <Label Content="Ranting" HorizontalAlignment="Left" Margin="253,104,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbRanting" HorizontalAlignment="Left" Margin="350,108,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem>1</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>5</ComboBoxItem>
+        </ComboBox>
+        <Label x:Name="lbltempodaras" Content="Temporadas" HorizontalAlignment="Left" Margin="253,139,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbTemporadas" HorizontalAlignment="Left" Margin="350,143,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+        </ComboBox>
 
 
     </Grid>

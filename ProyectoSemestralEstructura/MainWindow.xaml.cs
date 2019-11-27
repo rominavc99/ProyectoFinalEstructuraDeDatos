@@ -41,6 +41,10 @@ namespace ProyectoSemestralEstructura
             Estrellas4.Visibility = Visibility.Hidden;
             Estrellas5.Visibility = Visibility.Hidden;
             btnGuardar2.Visibility = Visibility.Hidden;
+            rdbtnPelicula.Visibility = Visibility.Hidden;
+            rdbtnSerie.Visibility = Visibility.Hidden;
+            lblTipo.Visibility = Visibility.Hidden;
+           
         }
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
@@ -59,6 +63,9 @@ namespace ProyectoSemestralEstructura
             Estrellas5.Visibility = Visibility.Hidden;
             btnCancelar.Visibility = Visibility.Visible;
             btnGuardar2.Visibility = Visibility.Visible;
+            rdbtnPelicula.Visibility = Visibility.Visible;
+            rdbtnSerie.Visibility = Visibility.Visible;
+            lblTipo.Visibility = Visibility.Visible;
         }
 
         private void LstViewMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -247,9 +254,19 @@ namespace ProyectoSemestralEstructura
 
         private void BtnGuardar2_Click(object sender, RoutedEventArgs e)
         {
-           
+            var yeartest = ((AgregarElemento)(grdMain.Children[0])).txtYear.Text;
+            int yearbien = int.Parse(yeartest);
+            string temporadass = "no aplica";
+
+            obras.Add(new Audiovisual(((AgregarElemento)(grdMain.Children[0])).txtTitulo.Text, yearbien, ((AgregarElemento)(grdMain.Children[0])).cbGenero.Text, temporadass, ((AgregarElemento)(grdMain.Children[0])).txtProductor.Text, ((AgregarElemento)(grdMain.Children[0])).txtDescripcion.Text, ((AgregarElemento)(grdMain.Children[0])).cbRanting.Text));
+
+  
 
             lstViewMain.Items.Refresh();
+
+            
+
+           
         }
 
         private void BtnAlfa1_Click(object sender, RoutedEventArgs e)
@@ -296,6 +313,20 @@ namespace ProyectoSemestralEstructura
             {
                 obras.RemoveAt(lstViewMain.SelectedIndex);
             }
+        }
+
+        private void RdbtnPelicula_Checked(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Add(new AgregarElemento());
+            ((AgregarElemento)(grdMain.Children[0])).cbTemporadas.Visibility = Visibility.Hidden;
+            ((AgregarElemento)(grdMain.Children[0])).lbltempodaras.Visibility = Visibility.Hidden;
+        }
+
+        private void RdbtnSerie_Checked(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Add(new AgregarElemento());
+            ((AgregarElemento)(grdMain.Children[0])).cbTemporadas.Visibility = Visibility.Visible;
+            ((AgregarElemento)(grdMain.Children[0])).lbltempodaras.Visibility = Visibility.Visible;
         }
     }
 }

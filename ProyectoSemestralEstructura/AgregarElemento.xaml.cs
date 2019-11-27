@@ -24,21 +24,9 @@ namespace ProyectoSemestralEstructura
         {
             InitializeComponent();
 
-            
-
         }
-
-        private void RdbtnPelicula_Checked(object sender, RoutedEventArgs e)
-        {
-                grdPeliculaSerie.Children.Clear();
-                grdPeliculaSerie.Children.Add(new usrpelicula());
-        }
-
-        private void RdbtnSerie_Checked(object sender, RoutedEventArgs e)
-        {
-            grdPeliculaSerie.Children.Clear();
-            grdPeliculaSerie.Children.Add(new usrSerie());
-        }
+        
+        
     }
   
 
