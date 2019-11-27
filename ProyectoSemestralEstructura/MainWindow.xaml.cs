@@ -29,6 +29,7 @@ namespace ProyectoSemestralEstructura
             obras.Add(new Audiovisual("Gatos y Perros", 1998, "documental", "5", "alguien", "aqui va una descripcion", "3"));
             obras.Add(new Audiovisual("La era de hielo", 2005, "animada", "5", "alguien", "aqui va una descripcion", "1"));
             obras.Add(new Audiovisual("Penguin", 2007, "documental", "5", "alguien", "aqui va una descripcion", "5"));
+            obras.Add(new Audiovisual("Penguin 2", 2009, "documental", "5", "alguien", "aqui va una descripcion", "5"));
 
             lstViewMain.ItemsSource = obras;
 
@@ -46,6 +47,7 @@ namespace ProyectoSemestralEstructura
             lblTipo.Visibility = Visibility.Hidden;
             btnguardar3.Visibility = Visibility.Hidden;
             lblobligatorio.Visibility = Visibility.Hidden;
+            btnEliminar.Visibility = Visibility.Hidden;
            
         }
 
@@ -91,6 +93,7 @@ namespace ProyectoSemestralEstructura
                 btnNum2.Visibility = Visibility.Hidden;
                 lblordenar.Visibility = Visibility.Hidden;
                 btnGuardar2.Visibility = Visibility.Hidden;
+                btnEliminar.Visibility = Visibility.Visible;
 
                 if (((SeleccionadoEditado)(grdMain.Children[0])).txtRantingSD.Text == "1")
                 {
