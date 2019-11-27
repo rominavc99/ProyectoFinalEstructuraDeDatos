@@ -329,6 +329,13 @@ namespace ProyectoSemestralEstructura
             if(lstViewMain.SelectedIndex != -1)
             {
                 obras.RemoveAt(lstViewMain.SelectedIndex);
+                Estrellas1.Visibility = Visibility.Hidden;
+                Estrellas2.Visibility = Visibility.Hidden;
+                Estrellas3.Visibility = Visibility.Hidden;
+                Estrellas4.Visibility = Visibility.Hidden;
+                Estrellas5.Visibility = Visibility.Hidden;
+                btnEditar.Visibility = Visibility.Hidden;
+                grdMain.Children.Clear();
             }
         }
 
